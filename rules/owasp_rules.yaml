@@ -1,0 +1,31 @@
+rules:
+  - id: sql_injection_basic
+    type: contains
+    patterns:
+      - "' or 1=1"
+      - "' or '1'='1"
+      - "union select"
+      - "sleep("
+      - "benchmark("
+    action: block
+    message: SQL injection pattern detected
+  - id: xss_basic
+    type: contains
+    patterns:
+      - "<script"
+      - "onerror="
+      - "javascript:"
+      - "document.cookie"
+    action: block
+    message: XSS pattern detected
+  - id: cmd_injection_basic
+    type: contains
+    patterns:
+      - "; rm -rf"
+      - "|| ls"
+      - "| cat /etc/passwd"
+      - "`whoami`"
+      - "$(whoami)"
+    action: block
+    message: Command injection pattern detected
+

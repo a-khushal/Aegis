@@ -1,0 +1,15 @@
+backend_url: http://localhost:9000
+rate_limit:
+  requests: 10
+  per_seconds: 10
+anomaly:
+  enabled: true
+  threshold: 0.65
+ban:
+  duration_seconds: 300
+logging:
+  db_path: data/waf.db
+  level: info
+dashboard:
+  secret_key: change-me
+
